@@ -1,11 +1,11 @@
 {
-    "name": "bppt_supply_chain",
-    "short_name": "bppt_supply_chain",
+    "name": "mybpjs",
+    "short_name": "mybpjs",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Customer engagement app untuk pengguna BPJS",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

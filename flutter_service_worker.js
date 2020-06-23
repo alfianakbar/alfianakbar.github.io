@@ -3,18 +3,37 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "970415512a3d5a48e9a7f8cc0a7243b5",
-"/": "970415512a3d5a48e9a7f8cc0a7243b5",
-"main.dart.js": "7c90b686a3912c08198f5ed941f6d282",
+  "index.html": "52dd19f7a1ac5dd8d3e9e828ea57ea72",
+"/": "52dd19f7a1ac5dd8d3e9e828ea57ea72",
+"main.dart.js": "34ed8c60b9e352da9fe33f8733321d01",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"manifest.json": "3efce86ec8302c068fa567557f4a3d5a",
-"assets/LICENSE": "f3d8697097c6d656dfc9c0ccf7f776fd",
-"assets/AssetManifest.json": "2efbb41d7877d10aac9d091f58ccd7b9",
-"assets/FontManifest.json": "f7161631e25fbd47f3180eae84053a51",
+"manifest.json": "4ab6969680052a19a344fdad7b43d812",
+"assets/AssetManifest.json": "6feebc280cb23d1ae8963e28041106b3",
+"assets/NOTICES": "3f743c9505d3c20da4e1db757dbc11bb",
+"assets/FontManifest.json": "1de5acd3e496dd6baac8f82895be35bf",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
-"assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16"
+"assets/fonts/JosefinSans-Italic.ttf": "ef34c9828c8d6c5d97dbb60e067b3d21",
+"assets/fonts/JosefinSans-Bold.ttf": "6d9e5dd5fa9def9c4bb23e0269688f9d",
+"assets/fonts/JosefinSans-Regular.ttf": "53931de48478e5acd136fa69f4bc55ad",
+"assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
+"assets/assets/images/movie6.jpeg": "d135b88a6a560435eafc6f4bdcc3542b",
+"assets/assets/images/game2.png": "43d5512ece28fa9fb3d5b67799c9000e",
+"assets/assets/images/game1.png": "6444f516855ef7e810c0ec1cad232a39",
+"assets/assets/images/movie1.jpeg": "913c2ceee2b434df5b87c251f56a0435",
+"assets/assets/images/game6.png": "8ef4f069666d165e98bfe96155322ca7",
+"assets/assets/images/logo-app.png": "55268f9fc8c29fd4edb9ee269d8562b0",
+"assets/assets/images/movie2.jpeg": "a6f942b3695372e9a77a776b5ac8407e",
+"assets/assets/images/splash.png": "e0ac6099da79ab9a12308ca91c227de2",
+"assets/assets/images/logo.png": "a61d7279b4e663fe21f3e968d9992131",
+"assets/assets/images/movie3.jpeg": "208f2fee71caa12d20e1be15f3b7b65b",
+"assets/assets/images/game3.jpeg": "0acd048e377d638f11715d9253363810",
+"assets/assets/images/game4.jpeg": "923ce6c7ee0d41f53917b7e33fb555cd",
+"assets/assets/images/movie4.jpeg": "ed7644785c74ff29b9c16efbc48423c8",
+"assets/assets/images/consult.jpg": "e8c62cda49cf2b7a6b02627cfee86cbf",
+"assets/assets/images/movie5.jpeg": "79ec6f2b02c59d821fc31a358a90426b",
+"assets/assets/images/game5.jpeg": "42e8d8fc4766609321386118130ea76f"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -23,7 +42,7 @@ const CORE = [
   "/",
 "main.dart.js",
 "index.html",
-"assets/LICENSE",
+"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 
@@ -128,7 +147,7 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
+  if (event.data == 'skipWaiting') {
     return self.skipWaiting();
   }
 
@@ -152,8 +171,8 @@ async function downloadOffline() {
   }
   for (var resourceKey in Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
+      resources.push(resourceKey);
     }
   }
-  return Cache.addAll(resources);
+  return contentCache.addAll(resources);
 }
