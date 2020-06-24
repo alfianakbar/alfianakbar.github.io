@@ -5,12 +5,12 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "52dd19f7a1ac5dd8d3e9e828ea57ea72",
 "/": "52dd19f7a1ac5dd8d3e9e828ea57ea72",
-"main.dart.js": "34ed8c60b9e352da9fe33f8733321d01",
+"main.dart.js": "8aa0f518c686abcae48ccf803e411f48",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "4ab6969680052a19a344fdad7b43d812",
-"assets/AssetManifest.json": "6feebc280cb23d1ae8963e28041106b3",
+"assets/AssetManifest.json": "d705870b362d502f627c594112bdaa1d",
 "assets/NOTICES": "3f743c9505d3c20da4e1db757dbc11bb",
 "assets/FontManifest.json": "1de5acd3e496dd6baac8f82895be35bf",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
@@ -31,7 +31,8 @@ const RESOURCES = {
 "assets/assets/images/game3.jpeg": "0acd048e377d638f11715d9253363810",
 "assets/assets/images/game4.jpeg": "923ce6c7ee0d41f53917b7e33fb555cd",
 "assets/assets/images/movie4.jpeg": "ed7644785c74ff29b9c16efbc48423c8",
-"assets/assets/images/consult.jpg": "e8c62cda49cf2b7a6b02627cfee86cbf",
+"assets/assets/images/roda.png": "a90a18a35f0185fcb3650a87435bedc4",
+"assets/assets/images/consult.jpg": "fd37915cc8d6a225708958a35fef8177",
 "assets/assets/images/movie5.jpeg": "79ec6f2b02c59d821fc31a358a90426b",
 "assets/assets/images/game5.jpeg": "42e8d8fc4766609321386118130ea76f"
 };
