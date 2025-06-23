@@ -1,33 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Customer engagement app untuk pengguna BPJS">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="mybpjs">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-
-  <title>mybpjs</title>
-  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfian Akbar - GitHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #24292e;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+    header h1 {
+      margin: 20px 0 10px;
+      font-size: 2em;
+    }
+    header p {
+      margin: 0 0 20px;
+      font-size: 1.2em;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    li a {
+      text-decoration: none;
+      color: #0366d6;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e1e4e8;
+    }
+  </style>
 </head>
 <body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <header>
+    <img src="https://github.com/alfianakbar.png" alt="Alfian Akbar avatar">
+    <h1>Alfian Akbar</h1>
+    <p>Welcome to my GitHub landing page</p>
+    <p><a href="https://github.com/alfianakbar" style="color:#fff;">Visit my GitHub profile</a></p>
+  </header>
+  <main>
+    <h2>Repositories</h2>
+    <ul id="repo-list"></ul>
+  </main>
+  <footer>
+    &copy; <span id="year"></span> Alfian Akbar
+  </footer>
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    fetch('https://api.github.com/users/alfianakbar/repos')
+      .then(response => response.json())
+      .then(repos => {
+        const list = document.getElementById('repo-list');
+        repos.slice(0, 5).forEach(repo => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${repo.html_url}">${repo.name}</a> - ${repo.description || ''}`;
+          list.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Failed to load repos', err));
   </script>
-  <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>
